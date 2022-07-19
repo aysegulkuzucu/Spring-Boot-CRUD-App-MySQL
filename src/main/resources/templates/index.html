@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div align="center">
+		<h2>Spring Boot Crud System</h2>
+		<tr>
+			<div align="center">
+				<h3><a th:href="@{'/new'}">Yeni Öğrenci Kayıt</a></h3>
+			</div>
+
+		</tr>
+		<tr>
+
+			<div class="col-sm-5" align="center">
+				<div class="panel-body" align="center">
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th>Öğrenci ID</th>
+								<th>Öğrenci Adı</th>
+								<th>Ders</th>
+								<th>Ücret</th>
+								<th>Düzenle</th>
+								<th>Sil</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="student : ${liststudent }">
+								<td th:text="${student.id}">Öğrenci ID</td>
+								<td th:text="${student.studentname}">Öğrenci Adı</td>
+								<td th:text="${student.course}">Ders</td>
+								<td th:text="${student.fee}">Ücret</td>
+								<td>
+									<a th:href="@{'/edit/' + ${student.id}}">Düzenle</a>
+								</td>
+								<td>
+									<a th:href="@{'/delete/' + ${student.id}}">Sil</a>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+
+				</div>
+
+			</div>
+
+		</tr>
+
+		</tbody>
+		</table>
+		<div>
+</body>
+
+</html>
